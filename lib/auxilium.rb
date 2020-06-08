@@ -1,10 +1,13 @@
-require "auxilium/version"
+# frozen_string_literal: true
 
-require "active_support"
+require 'auxilium/version'
+require 'active_support'
 
-require "auxilium/easy_crypt"
-require "auxilium/grape"
-require "auxilium/grape/parameter_filter"
+require 'auxilium/easy_crypt'
+require 'auxilium/concerns'
+require 'auxilium/concerns/metadata_scoped'
+require 'auxilium/grape'
+require 'auxilium/grape/parameter_filter'
 
 module Auxilium
   class Error < StandardError; end
