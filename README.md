@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Use th4e source :)
+Use the source :)
 
 ## Development
 
