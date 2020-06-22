@@ -2,7 +2,7 @@ module Auxilium
   module Grape
     class ParameterFilter
       class << self
-        FILTER_REGEX = /password|token/i
+        FILTER_REGEX = /password|token|api_key|Authorization/i
 
         def filter(hash, regex = FILTER_REGEX)
           hash = hash.dup
