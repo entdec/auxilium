@@ -6,9 +6,10 @@ require 'active_support'
 require 'auxilium/easy_crypt'
 require 'auxilium/concerns'
 require 'auxilium/concerns/metadata_scoped'
+require 'auxilium/concerns/model_name_shortcuts'
 require 'auxilium/grape'
 require 'auxilium/grape/parameter_filter'
-require "auxilium/uuid_modifier"
+require 'auxilium/uuid_modifier'
 
 module Auxilium
   class Error < StandardError; end
