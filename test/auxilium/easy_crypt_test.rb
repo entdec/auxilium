@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 module Auxilium
   class EasyCryptTest < ActiveSupport::TestCase
-
     test 'EasyCrypt' do
       crypt = EasyCrypt.new('test')
 

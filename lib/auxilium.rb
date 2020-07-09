@@ -3,6 +3,8 @@
 require 'auxilium/version'
 require 'active_support'
 
+require 'core_ext/integer'
+require 'core_ext/string'
 require 'auxilium/easy_crypt'
 require 'auxilium/concerns'
 require 'auxilium/concerns/metadata_scoped'
