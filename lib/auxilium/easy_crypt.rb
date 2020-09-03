@@ -9,6 +9,7 @@ module Auxilium
 
       # Return the crypted text is it was already crypted by this routine
       return text if crypted?(text)
+      return text if text.blank?
 
       data = encrypted(text)
       raise StandardError, 'WTF' unless decrypt(data)
