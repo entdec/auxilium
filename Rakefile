@@ -1,6 +1,6 @@
 require "bundler/gem_tasks"
 require "rake/testtask"
-load 'lib/tasks/auxilium_tasks.rake'
+import 'lib/tasks/semver.rake'
 
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
