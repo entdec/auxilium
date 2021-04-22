@@ -22,11 +22,11 @@ namespace File.basename(Dir.pwd) do
       file.puts version_file_content.gsub(/VERSION\s=\s'(.*)'/, "VERSION = '#{new_version}'")
     end
 
-    if File.exists? './package.json'
+    if File.exists?('./package.json')
       package = JSON.parse(File.read('./package.json'))
       package['version'] = new_version
       File.open('./package.json', 'w') do |file|
-        file.puts(package.to_json)
+        file.puts(JSON.pretty_generate(package))
       end
 
       `git add ./package.json`

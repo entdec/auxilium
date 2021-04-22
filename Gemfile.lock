@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    auxilium (0.2.0)
+    auxilium (3.0.3)
       activesupport (> 5.1)
       pundit (> 2)
       responders (> 3)
