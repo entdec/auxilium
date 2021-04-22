@@ -9,6 +9,7 @@ module Auxilium
     def navigation_location
       return options[:location] if controller.params[:commit] == 'continue' && options[:location]
       return options[:collection_location].call if controller.params[:commit] == 'save' && options[:collection_location]
+      return resource_location if controller.params[:commit] == 'continue'
 
       klass = resources.last.class
 
