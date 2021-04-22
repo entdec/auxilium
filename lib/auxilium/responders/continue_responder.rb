@@ -7,6 +7,7 @@ module Auxilium
     protected
 
     def navigation_location
+      return options[:location] if options[:location] && controller.is_a?(Devise::SessionsController)
       return options[:location] if controller.params[:commit] == 'continue' && options[:location]
       return options[:collection_location].call if controller.params[:commit] == 'save' && options[:collection_location]
       return resource_location if controller.params[:commit] == 'continue'
