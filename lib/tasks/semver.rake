@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'json'
+
 namespace File.basename(Dir.pwd) do
   desc 'Semantically version and release.\nArguments: PART[=patch] (other options are major and minor)'
   task :semver do
@@ -18,6 +20,14 @@ namespace File.basename(Dir.pwd) do
     version_file_content = File.read(version_file)
     File.open(version_file, 'w') do |file|
       file.puts version_file_content.gsub(/VERSION\s=\s'(.*)'/, "VERSION = '#{new_version}'")
+    end
+
+    if File.exists? './package.json'
+      package = JSON.parse(File.read('./package.json'))
+      package['version'] = new_version
+      File.open('./package.json', 'w') do |file|
+        file.puts(package.to_json)
+      end
     end
 
     puts "Updated version to #{new_version}"
