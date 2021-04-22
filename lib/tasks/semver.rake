@@ -28,13 +28,16 @@ namespace File.basename(Dir.pwd) do
       File.open('./package.json', 'w') do |file|
         file.puts(package.to_json)
       end
+
+      `git add ./package.json`
     end
 
     puts "Updated version to #{new_version}"
 
     relative_version_path = Pathname.new(version_file).relative_path_from(Dir.pwd)
 
-    `git commit #{relative_version_path} -m "Version #{new_version}"`
+    `git add #{relative_version_path}`
+    `git commit -m "Version #{new_version}"`
     `git push`
     `git tag #{new_version}`
     `git push --tags`
