@@ -9,7 +9,7 @@ module Auxilium
     def navigation_location
       return options[:location] if options[:location] && controller.is_a?(Devise::SessionsController)
       return options[:location] if controller.params[:commit] == 'continue' && options[:location]
-      return options[:collection_location].call if controller.params[:commit] == 'save' && options[:collection_location]
+      return options[:collection_location].call if %w[save commit].include?(controller.params[:commit]) && options[:collection_location]
       return resource_location if controller.params[:commit] == 'continue'
 
       klass = resources.last.class
@@ -18,6 +18,16 @@ module Auxilium
         resources[0...-1] << klass.model_name.route_key.to_sym
       else
         resources
+      end
+    end
+
+    def navigation_behavior(error)
+      if get?
+        raise error
+      elsif has_errors? && default_action
+        render error_rendering_options
+      else
+        redirect_to navigation_location, status: :see_other
       end
     end
   end
