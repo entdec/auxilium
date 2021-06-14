@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'actionpack', '> 5.1'
   spec.add_dependency 'activesupport', '> 5.1'
   spec.add_dependency 'pundit', '> 2'
   spec.add_dependency 'responders', '> 3'
