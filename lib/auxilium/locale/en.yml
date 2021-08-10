@@ -2,3 +2,4 @@ en:
   errors:
     messages:
       not_an_allowed_state: is not an allowed state
+      not_in_an_allowed_state: is not in an allowed state

@@ -69,11 +69,11 @@ module Auxilium
 
       object = klass.new(account: OpenStruct.new(state: nil))
       refute object.valid?
-      assert_equal ['is not an allowed state'], object.errors[:account]
+      assert_equal ['is not in an allowed state'], object.errors[:account]
 
       object = klass.new(account: OpenStruct.new(state: 'noop'))
       refute object.valid?
-      assert_equal ['is not an allowed state'], object.errors[:account]
+      assert_equal ['is not in an allowed state'], object.errors[:account]
     end
 
     test 'validates that attribute object state with an alternative state attribute name is one of the values in only' do
@@ -87,11 +87,11 @@ module Auxilium
 
       object = klass.new(account: OpenStruct.new(my_state: nil))
       refute object.valid?
-      assert_equal ['is not an allowed state'], object.errors[:account]
+      assert_equal ['is not in an allowed state'], object.errors[:account]
 
       object = klass.new(account: OpenStruct.new(my_state: 'noop'))
       refute object.valid?
-      assert_equal ['is not an allowed state'], object.errors[:account]
+      assert_equal ['is not in an allowed state'], object.errors[:account]
     end
 
     test 'validates that attribute object state is not one of the values in except' do
@@ -105,11 +105,11 @@ module Auxilium
 
       object = klass.new(account: OpenStruct.new(state: 'concept'))
       refute object.valid?
-      assert_equal ['is not an allowed state'], object.errors[:account]
+      assert_equal ['is not in an allowed state'], object.errors[:account]
 
       object = klass.new(account: OpenStruct.new(state: 'inactive'))
       refute object.valid?
-      assert_equal ['is not an allowed state'], object.errors[:account]
+      assert_equal ['is not in an allowed state'], object.errors[:account]
     end
 
     test 'validates that attribute object state with an alternative state attribute name is not one of the values in except' do
@@ -123,11 +123,11 @@ module Auxilium
 
       object = klass.new(account: OpenStruct.new(my_state: 'concept'))
       refute object.valid?
-      assert_equal ['is not an allowed state'], object.errors[:account]
+      assert_equal ['is not in an allowed state'], object.errors[:account]
 
       object = klass.new(account: OpenStruct.new(my_state: 'inactive'))
       refute object.valid?
-      assert_equal ['is not an allowed state'], object.errors[:account]
+      assert_equal ['is not in an allowed state'], object.errors[:account]
     end
 
     test 'validates nil state on attribute object with allow_nil = true' do
@@ -144,7 +144,7 @@ module Auxilium
 
       object = klass.new(account: OpenStruct.new(state: 'invalid'))
       refute object.valid?
-      assert_equal ['is not an allowed state'], object.errors[:account]
+      assert_equal ['is not in an allowed state'], object.errors[:account]
     end
 
     test 'validates nil state on attribute object with an alternative attribute name and allow_nil = true' do
@@ -161,7 +161,7 @@ module Auxilium
 
       object = klass.new(account: OpenStruct.new(my_state: 'invalid'))
       refute object.valid?
-      assert_equal ['is not an allowed state'], object.errors[:account]
+      assert_equal ['is not in an allowed state'], object.errors[:account]
     end
 
     private

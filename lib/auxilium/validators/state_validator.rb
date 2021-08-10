@@ -11,7 +11,7 @@ class StateValidator < ActiveModel::EachValidator
     return if current_state.nil? && options[:allow_nil]
 
     if (wrong_states.present? && wrong_states.include?(current_state)) || (correct_states.present? && correct_states.exclude?(current_state))
-      record.errors.add(attribute, I18n.t('errors.messages.not_an_allowed_state'))
+      record.errors.add(attribute, I18n.t(attribute == state_method ? 'errors.messages.not_an_allowed_state' : 'errors.messages.not_in_an_allowed_state'))
     end
   end
 end
