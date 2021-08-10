@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
 require 'auxilium/version'
-
-require 'i18n'
-I18n.load_path = Dir[File.join(File.dirname(__FILE__), 'auxilium', 'locale', '*.{rb,yml}')]
-
 require 'active_support'
 require 'active_model'
 require 'pundit'
 require 'responders'
 require 'rolify'
+
+require 'i18n'
+I18n.load_path += Dir[File.join(File.dirname(__FILE__), 'auxilium', 'locale', '*.{rb,yml}')]
 
 require 'core_ext/string'
 require 'auxilium/easy_crypt'
