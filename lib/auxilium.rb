@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 require 'auxilium/version'
+
+require 'i18n'
+I18n.load_path = Dir[File.join(File.dirname(__FILE__), 'auxilium', 'locale', '*.{rb,yml}')]
+
 require 'active_support'
 require 'active_model'
 require 'pundit'
@@ -18,6 +22,7 @@ require 'auxilium/concerns/model_name_shortcuts'
 require 'auxilium/responders/continue_responder'
 require 'auxilium/responders/signum_responder'
 require 'auxilium/responders/responder'
+require 'auxilium/validators/state_validator'
 require 'auxilium/validators/unchanged_validator'
 require 'auxilium/grape'
 require 'auxilium/grape/parameter_filter'
@@ -27,3 +32,4 @@ module Auxilium
   class Error < StandardError; end
   # Your code goes here...
 end
+

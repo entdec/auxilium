@@ -1,0 +1,4 @@
+en:
+  errors:
+    messages:
+      not_an_allowed_state: is not an allowed state
