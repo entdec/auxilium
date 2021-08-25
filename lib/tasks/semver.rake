@@ -36,7 +36,8 @@ namespace File.basename(Dir.pwd) do
     puts
     puts "Changelog:"
     puts `git log $(git describe --tags --abbrev=0)..HEAD --oneline`
-
+    puts
+    puts
     relative_version_path = Pathname.new(version_file).relative_path_from(Dir.pwd)
     `git add #{relative_version_path}`
     `git commit -m "Version #{new_version}"`
