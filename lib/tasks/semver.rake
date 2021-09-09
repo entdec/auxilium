@@ -49,8 +49,17 @@ namespace File.basename(Dir.pwd) do
       `git add ./package.json`
     end
 
-    puts "Updated version to #{new_version}"
+    if gemspec
+      puts "Release #{spec.name} #{new_version}"
+    else
+      puts "Updated version to #{new_version}"
+    end
 
+    puts
+    puts "Changelog:"
+    puts `git log $(git describe --tags --abbrev=0)..HEAD --oneline`
+    puts
+    puts
     `git commit -m "Version #{new_version}"`
     `git push`
     `git tag #{new_version}`

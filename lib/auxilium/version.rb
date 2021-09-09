@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Auxilium
-  VERSION = '3.0.11'
+  VERSION = '3.0.13'
 end
