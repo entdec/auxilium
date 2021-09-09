@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    auxilium (3.0.10)
+    auxilium (3.0.11)
       actionpack (> 5.1)
       activemodel (> 5.1)
       activesupport (> 5.1)
@@ -60,7 +60,7 @@ GEM
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    pundit (2.1.0)
+    pundit (2.1.1)
       activesupport (>= 3.0.0)
     racc (1.5.2)
     rack (2.2.3)
