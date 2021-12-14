@@ -7,7 +7,7 @@ class StateValidator < ActiveModel::EachValidator
     correct_states = options[:only] || []
     wrong_states = options[:except] || []
     state_method = options.fetch(:state, :state)
-    current_state = attribute == state_method ? value : value.send(state_method)
+    current_state = attribute == state_method ? value : value&.send(state_method)
     return if current_state.nil? && options[:allow_nil]
 
     if (wrong_states.present? && wrong_states.include?(current_state)) || (correct_states.present? && correct_states.exclude?(current_state))
