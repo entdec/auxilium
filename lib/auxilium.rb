@@ -24,6 +24,7 @@ require 'auxilium/responders/signum_responder'
 require 'auxilium/responders/responder'
 require 'auxilium/validators/state_validator'
 require 'auxilium/validators/unchanged_validator'
+require 'auxilium/validators/yaml_validator'
 require 'auxilium/grape'
 require 'auxilium/grape/parameter_filter'
 require 'auxilium/uuid_modifier'
@@ -32,4 +33,3 @@ module Auxilium
   class Error < StandardError; end
   # Your code goes here...
 end
-
