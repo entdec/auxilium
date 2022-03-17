@@ -18,14 +18,14 @@ module Auxilium
       def metadata_yaml
         return '' if attributes['metadata'].blank?
 
-        if attributes['metadata'].is_a? Hash
-          YAML.dump(attributes['metadata'])
-        else
+        if attributes['metadata'].is_a? String
           begin
             YAML.load(attributes['metadata'])
           rescue StandardError => e
             attributes['metadata']
           end
+        else
+          YAML.dump(attributes['metadata'])
         end
       end
     end
