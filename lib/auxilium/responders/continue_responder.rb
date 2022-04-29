@@ -24,6 +24,8 @@ module Auxilium
     def navigation_behavior(error)
       if get?
         raise error
+      elsif has_errors? && options[:error_location]
+        redirect_to options[:error_location].call, status: :see_other
       elsif has_errors? && default_action
         render error_rendering_options
       else
