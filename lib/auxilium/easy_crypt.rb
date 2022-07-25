@@ -1,7 +1,10 @@
 module Auxilium
   class EasyCrypt
-    def initialize(key_base)
+    # When no digest is given, the default Rails digest is used.
+    # Digest can be something like OpenSSL::Digest::SHA1 or OpenSSL::Digest::SHA256 
+    def initialize(key_base, digest = nil)
       @key_base = key_base
+      @digest = digest
     end
 
     def encrypt(text)
@@ -34,7 +37,7 @@ module Auxilium
     end
 
     def crypt(salt)
-      key = ActiveSupport::KeyGenerator.new(@key_base).generate_key(salt, key_length)
+      key = ActiveSupport::KeyGenerator.new(@key_base, {hash_digest_class: @digest}).generate_key(salt, key_length)
       ActiveSupport::MessageEncryptor.new(key, cipher: 'aes-256-gcm')
     end
 
