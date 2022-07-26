@@ -22,7 +22,7 @@ module Auxilium
     end    
     
     test 'using sha256 cannot decrypt with sha1 but will decrypt with sha256' do
-      crypt = EasyCrypt.new('test', OpenSSL::Digest::SHA256)
+      crypt = EasyCrypt.new('test', digest: OpenSSL::Digest::SHA256)
       crypted = crypt.encrypt('supersecret')
 
       decrypt_sha256 = EasyCrypt.new('test', OpenSSL::Digest::SHA256)
