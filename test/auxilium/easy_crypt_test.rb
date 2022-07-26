@@ -36,7 +36,7 @@ module Auxilium
       crypt = EasyCrypt.new('test', digest: OpenSSL::Digest::SHA1)
       crypted = crypt.encrypt('supersecret')
 
-      decrypt_sha1 = EasyCrypt.new('test', OpenSSL::Digest::SHA1)
+      decrypt_sha1 = EasyCrypt.new('test', digest: OpenSSL::Digest::SHA1)
       assert_equal 'supersecret', decrypt_sha1.decrypt(crypted)
       
       decrypt_sha256 = EasyCrypt.new('test', OpenSSL::Digest::SHA256)
