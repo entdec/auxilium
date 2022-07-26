@@ -28,7 +28,7 @@ module Auxilium
       decrypt_sha256 = EasyCrypt.new('test', digest: OpenSSL::Digest::SHA256)
       assert_equal 'supersecret', decrypt_sha256.decrypt(crypted)
       
-      decrypt_sha1 = EasyCrypt.new('test', OpenSSL::Digest::SHA1)
+      decrypt_sha1 = EasyCrypt.new('test', digest: OpenSSL::Digest::SHA1)
       assert_raises(ActiveSupport::MessageEncryptor::InvalidMessage) { decrypt_sha1.decrypt(crypted)}
     end
 
