@@ -37,7 +37,7 @@ module Auxilium
     end
 
     def crypt(salt)
-      key = ActiveSupport::KeyGenerator.new(@key_base, {hash_digest_class: @digest}).generate_key(salt, key_length)
+      key = ActiveSupport::KeyGenerator.new(@key_base, hash_digest_class: @digest).generate_key(salt, key_length)
       ActiveSupport::MessageEncryptor.new(key, cipher: 'aes-256-gcm')
     end
 
