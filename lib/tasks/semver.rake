@@ -16,7 +16,7 @@ namespace File.basename(Dir.pwd) do
     version_file = Dir.glob(File.expand_path(Dir.pwd) + '/lib/**/version.rb').first
     if version_file
       version_file_content = File.read(version_file)
-      versions = version_file_content.scan(/VERSION\s=\s'(.*)'/).flatten.first if versions.nil?
+      versions = version_file_content.scan(/VERSION\s=\s(\"|')(.*)(\"|')/).flatten[1] if versions.nil?
     end
 
     raise 'Unable to detect version' if versions.nil?
@@ -32,7 +32,7 @@ namespace File.basename(Dir.pwd) do
 
     if version_file
       File.open(version_file, 'w') do |file|
-        file.puts version_file_content.gsub(/VERSION\s=\s'(.*)'/, "VERSION = '#{new_version}'")
+        file.puts version_file_content.gsub(/VERSION\s=\s(\"|')(.*)(\"|')/, "VERSION = \"#{new_version}\"")
       end
 
       relative_version_path = Pathname.new(version_file).relative_path_from(Dir.pwd)
