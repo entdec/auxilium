@@ -11,7 +11,7 @@ module Auxilium
 
       def metadata_yaml=(yaml)
         write_attribute :metadata, YAML.safe_load(yaml.gsub("\t", '  '))
-      rescue StandardError => e
+      rescue StandardError
         write_attribute :metadata, yaml
       end
 
@@ -21,7 +21,7 @@ module Auxilium
         if attributes['metadata'].is_a? String
           begin
             YAML.load(attributes['metadata'])
-          rescue StandardError => e
+          rescue StandardError
             attributes['metadata']
           end
         else

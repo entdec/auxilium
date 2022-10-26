@@ -4,3 +4,5 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'responders', github: 'heartcombo/responders', branch: :main
+
+gem 'solargraph', require: false
