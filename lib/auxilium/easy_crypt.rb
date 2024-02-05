@@ -1,7 +1,7 @@
 module Auxilium
   class EasyCrypt
     # When no digest is given, the default Rails digest is used.
-    # Digest can be something like OpenSSL::Digest::SHA1 or OpenSSL::Digest::SHA256 
+    # Digest can be something like OpenSSL::Digest::SHA1 or OpenSSL::Digest::SHA256
     def initialize(key_base, digest: OpenSSL::Digest::SHA1)
       @key_base = key_base
       @digest = digest
@@ -51,6 +51,16 @@ module Auxilium
 
     def crypted?(text)
       text =~ /^EasyCrypt@[0-9a-f]+\$\$[^-]+--[^-]+--[^-]+/
+    end
+
+    class << self
+      def dump(text)
+        new(Rails.application.credentials.secret_key_base).encrypt(text)
+      end
+
+      def load(text)
+        new(Rails.application.credentials.secret_key_base).decrypt(text)
+      end
     end
   end
 end

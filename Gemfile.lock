@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    auxilium (3.0.24)
+    auxilium (3.0.26)
       actionpack (> 5.1)
       activemodel (> 5.1)
       activesupport (> 5.1)
@@ -74,7 +74,7 @@ GEM
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    pundit (2.2.0)
+    pundit (2.3.1)
       activesupport (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.4)
@@ -98,7 +98,7 @@ GEM
     reverse_markdown (2.1.1)
       nokogiri
     rexml (3.2.5)
-    rolify (6.0.0)
+    rolify (6.0.1)
     rubocop (1.37.1)
       json (~> 2.3)
       parallel (~> 1.10)
