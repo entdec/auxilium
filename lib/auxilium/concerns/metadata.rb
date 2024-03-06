@@ -28,6 +28,10 @@ module Auxilium
           YAML.dump(attributes['metadata'])
         end
       end
+
+      def metadata
+        attributes['metadata'].present? && HashWithIndifferentAccess.new(attributes['metadata'])
+      end
     end
   end
 end

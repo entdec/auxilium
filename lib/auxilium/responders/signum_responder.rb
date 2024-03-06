@@ -54,7 +54,7 @@ module Auxilium
       return if value.blank?
 
       @sent_signum = true
-      Signum.signal(controller.current_user, text: value, kind: key)
+      Signum.send(key, controller.current_user, text: value)
     end
 
     def send_signum? #:nodoc:

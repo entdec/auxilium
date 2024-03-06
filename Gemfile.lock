@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    auxilium (3.0.26)
+    auxilium (3.0.27)
       actionpack (> 5.1)
       activemodel (> 5.1)
       activesupport (> 5.1)
