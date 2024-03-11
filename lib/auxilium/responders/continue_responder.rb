@@ -9,7 +9,7 @@ module Auxilium
     def navigation_location
       return options[:location] if options[:location] && (defined?(Devise) && (controller.is_a?(Devise::SessionsController) || controller.is_a?(Devise::PasswordsController)))
       return options[:location] if controller.params[:commit] == 'continue' && options[:location]
-      return options[:collection_location].call if %w[save commit].include?(controller.params[:commit]) && options[:collection_location]
+      return options[:collection_location].call if %w[save commit delete].include?(controller.params[:commit]) && options[:collection_location]
       return resource_location if controller.params[:commit] == 'continue'
 
       klass = resources.last.class
