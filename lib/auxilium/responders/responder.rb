@@ -4,5 +4,8 @@ module Auxilium
 
     include SignumResponder
     include ContinueResponder
+
+    self.error_status = :unprocessable_entity
+    self.redirect_status = :see_other
   end
 end
