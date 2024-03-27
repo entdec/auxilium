@@ -8,7 +8,7 @@ module Auxilium
       def admin_authenticated
         authenticate_user!
 
-        redirect_to root_path unless current_user.has_role?(:admin)
+        redirect_to main_app.root_path unless current_user.has_role?(:admin)
       end
 
       included do
